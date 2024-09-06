@@ -1,24 +1,29 @@
 import 'package:flutter/material.dart';
 import 'main_screen.dart';
-import 'register_page.dart';  // Import the register page
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key, required this.title});
-
-  final String title;
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final _formKey = GlobalKey<FormState>();
+  TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Cadastro'),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        elevation: 0,
+      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
@@ -26,17 +31,28 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Text(
-                'Encontre o meio de transporte ideal para você',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 40),
               Form(
                 key: _formKey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      child: TextFormField(
+                        controller: nameController,
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: "Nome",
+                          hintText: "Digite aqui seu nome",
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Por favor, insira seu nome';
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8),
                       child: TextFormField(
@@ -72,6 +88,24 @@ class _LoginPageState extends State<LoginPage> {
                         },
                       ),
                     ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      child: TextFormField(
+                        controller: confirmPasswordController,
+                        obscureText: true,
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: "Confirme sua senha",
+                          hintText: "Digite aqui sua senha",
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty || value != passwordController.text) {
+                            return 'As senhas não coincidem';
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
                     const SizedBox(height: 20),
                     SizedBox(
                       width: double.infinity, // Makes the button expand full width
@@ -88,29 +122,17 @@ class _LoginPageState extends State<LoginPage> {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const MainScreen(),
+                                builder: (context) => const MainScreen(), // Navigate to the main screen after successful registration
                               ),
                             );
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('Por favor, preencha todos os campos')),
+                              const SnackBar(content: Text('Por favor, preencha todos os campos corretamente')),
                             );
                           }
                         },
-                        child: const Text('Entrar', style: TextStyle(fontSize: 18)),
+                        child: const Text('Cadastrar', style: TextStyle(fontSize: 18)),
                       ),
-                    ),
-                    const SizedBox(height: 20),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const RegisterPage(), // Go to registration page
-                          ),
-                        );
-                      },
-                      child: const Text('Não tem uma conta? Cadastre-se aqui!'),
                     ),
                   ],
                 ),

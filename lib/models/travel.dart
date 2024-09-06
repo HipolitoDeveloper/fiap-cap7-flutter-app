@@ -1,15 +1,19 @@
+import 'package:flutter/material.dart';
+
 class Travel {
-  final String transportName;
-  final String description;
-  final String date;
-  final String departureTime;
-  final String returnTime;
+  final String destination;
+  final DateTime date;
+  final TimeOfDay time;
+  String? transport;
+  String? description;  // Agora 'description' é uma String
 
   Travel({
-    required this.transportName,
-    required this.description,
+    required this.destination,
     required this.date,
-    required this.departureTime,
-    required this.returnTime,
+    required this.time,
+    this.transport,
+    this.description,
   });
 }
+
+
