@@ -24,3 +24,17 @@ Antes de começar, você vai precisar ter as seguintes ferramentas instaladas no
    ```bash
    git clone https://github.com/seu-usuario/seu-repositorio.git
    cd seu-repositorio
+
+2. **Instale as dependências do Flutter:**
+
+    ```bash
+    Copiar código
+    flutter pub get
+    Conecte um dispositivo Android ou inicie um emulador.
+
+3. **Execute o aplicativo:**
+
+    ```bash
+    Copiar código
+    flutter run
+    Este comando compilará o código e executará o aplicativo no dispositivo conectado ou emulador.
