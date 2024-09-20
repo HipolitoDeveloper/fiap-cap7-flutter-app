@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cap9/models/travel.dart';  // Importa o modelo Travel
+import 'package:HubMaaS/models/travel.dart';  // Importa o modelo Travel
 import 'choose_time_page.dart';
 
 class HomePage extends StatefulWidget {

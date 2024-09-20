@@ -1,16 +1,26 @@
-# flutter_cap9
+# Hub MaaS
 
-A new Flutter project.
+Este projeto é um aplicativo simples de viagens construído em Flutter. O aplicativo permite ao usuário criar viagens, selecionar opções de transporte, confirmar a viagem e ver um histórico das viagens feitas.
 
-## Getting Started
+## Funcionalidades
 
-This project is a starting point for a Flutter application.
+- **HomePage**: O usuário insere o destino de viagem.
+- **Escolha de Transporte**: O usuário seleciona o meio de transporte preferido.
+- **Confirmação de Viagem**: O usuário confirma a viagem e finaliza.
+- **Histórico de Viagens**: O usuário pode visualizar todas as viagens feitas na página de "Viagens".
 
-A few resources to get you started if this is your first Flutter project:
+## Pré-requisitos
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Antes de começar, você vai precisar ter as seguintes ferramentas instaladas no seu computador:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [Flutter](https://flutter.dev/docs/get-started/install) (SDK)
+- [Android Studio](https://developer.android.com/studio) (ou um emulador Android configurado)
+- [Git](https://git-scm.com/)
+
+## Instruções para rodar o aplicativo
+
+1. **Clone o repositório:**
+
+   ```bash
+   git clone https://github.com/seu-usuario/seu-repositorio.git
+   cd seu-repositorio
